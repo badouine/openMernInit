@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose'); 
 const app = express();
 const stuffRoutes = require('./routes/stuff');
+const userRoutes = require('./routes/user');
 
 
 mongoose.connect('mongodb+srv://sensational_i:Kuny%40fnf8@shop.haorn.mongodb.net/shop?retryWrites=true&w=majority',
@@ -21,5 +22,6 @@ app.use((req, res, next) => {
   });
 
 app.use('/api/stuff', stuffRoutes);
+app.use('/api/auth',userRoutes);
 
 module.exports = app;
